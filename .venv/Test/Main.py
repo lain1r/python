@@ -2,8 +2,21 @@ import tkinter as tk
 
 root = tk.Tk()
 root.title('окно')
-root.minsize(600, 500)
+root.geometry('800x500')
+root.resizable(width=False, height=False)
 
+ekgConnect = 0
+emgConnect = 0
+
+if ekgConnect == 1:
+    textConnect = "Пульс определен, перейдите к подключению электродов для исследования ЭМГ"
+else:
+    textConnect = "Пульс не определен проверьте подключение"
+
+if emgConnect == 1:
+    textConnect1 = "Пульс определен, перейдите к подключению электродов для исследования ЭМГ"
+else:
+    textConnect1 = "Пульс не определен проверьте подключение"
 
 # Верхний фрейм с заголовком
 frmTitle = tk.Frame(master=root, relief=tk.RAISED, borderwidth=1)
@@ -64,7 +77,7 @@ frmConn.pack(fill=tk.BOTH, expand=True)
 
 lblConn = tk.Label(
     master=frmConn,
-    text= 'Фофанов Максим',
+    text= textConnect,
     relief=tk.RAISED,
     borderwidth=1,
     anchor='center',
@@ -85,7 +98,7 @@ frmConn1.pack(fill=tk.BOTH, expand=True)
 
 lblConn1 = tk.Label(
     master=frmConn1,
-    text= 'Фофанов Максим',
+    text= textConnect1,
     relief=tk.RAISED,
     borderwidth=1,
     anchor='center',
