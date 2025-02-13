@@ -66,13 +66,40 @@ lblTitle1.pack(fill=tk.X)
 
 lbl4 = tk.Label(
     master=frmTitle1,
-    text= 'Фофанов Максим sdf dsf sdfsdf sdfdsadsadasdsd',
+    text= 'Введите данные',
     relief=tk.RAISED,
     borderwidth=1,
     anchor='center',
     wraplength=100
 )
 lbl4.pack(side = tk.LEFT, fill='both', expand=True)
+
+entSName = tk.Entry(master=frmTitle1, width=30)
+entSName.pack()
+sname = entSName.get()
+
+entLName = tk.Entry(master=frmTitle1)
+entLName.pack()
+lname = entSName.get()
+
+def add_text():
+    text = entSName.get()
+    if text:
+        label1 = tk.Label(frmTitle1, text=text)
+        label1.pack()
+        entSName.pack_forget()
+        btnSubmit.pack_forget()
+        entSName.delete(1.0, tk.START)
+        text1 = entLName.get()
+    if text1:
+        label2 = tk.Label(frmTitle1, text=text1)
+        label2.pack()
+        entLName.pack_forget()
+        entSName.delete(1.0, tk.START)
+
+
+btnSubmit = tk.Button(master=frmTitle1, text='Ввод', command=add_text)
+btnSubmit.pack()
 
 frmDiv = tk.Frame(root)
 frmDiv.pack(fill = tk.BOTH, expand = 1)
